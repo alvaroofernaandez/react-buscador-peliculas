@@ -1,0 +1,91 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  width: 100vw;
+  height: 220px;
+  background-color: rgba(12, 21, 28, 0.5);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+}
+
+input {
+  background-color: #0c151c;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+main {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 230px;
+}
+
+h1 {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  font-size: 3rem;
+  color: #fff;
+}
+
+form {
+  align-items: center;
+  display: grid;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.movies {
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 100px;
+  background-color: #171f29;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: 100%;
+  gap: 32px;
+}
+
+.movie {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.movie h3, .movie p {
+  margin: 0;
+}
+
+.movie img {
+  border-radius: 8px;
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+
+.form-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-subheader {
+  margin: 0 auto;
+  padding: 20px;
+}
