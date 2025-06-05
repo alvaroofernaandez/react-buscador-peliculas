@@ -16,6 +16,29 @@ export const searchMovies = async ({search}) => {
       poster: movie.Poster
     }))
   } catch (e) {
-    throw new Error('Error al buscar las películas')
+    throw new Error('Error searching for movies')
+  }
+}
+
+export const getMovieDetails = async (id) => {
+  try {
+    const apiKey = import.meta.env.VITE_API_KEY;
+    const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`);
+    const data = await response.json()
+
+    return {
+      id: data.imdbID,
+      title: data.Title,
+      year: data.Year,
+      runtime: data.Runtime,
+      genre: data.Genre,
+      director: data.Director,
+      actors: data.Actors,
+      plot: data.Plot,
+      rating: data.imdbRating,
+      poster: data.Poster
+    }
+  } catch (e) {
+    throw new Error('Error fetching movie details')
   }
 }
