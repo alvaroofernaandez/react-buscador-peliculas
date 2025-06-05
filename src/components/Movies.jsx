@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom'
+
 function ListOfMovies({ movies }) {
   return (
     <div className="movies-grid">
       {movies.map(movie => (
-        <div key={movie.id} className="movie-card">
+        <Link to={`/movie/${movie.id}`} key={movie.id} className="movie-card">
           <img
             className="movie-poster"
             src={movie.poster}
@@ -13,7 +15,7 @@ function ListOfMovies({ movies }) {
             <h3 className="movie-title">{movie.title}</h3>
             <p className="movie-year">{movie.year}</p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   )
