@@ -1,27 +1,31 @@
-
-function ListOfMovies ({movies}) {
+function ListOfMovies({ movies }) {
   return (
-    <ul className="movies">
-      {
-        movies.map(movie => (
-          <li className="movie" key ={movie.id}>
-            <img src={movie.poster} alt={movie.title} />
-            <h3>{movie.title}</h3>
-            <p>{movie.year}</p>
-          </li>
-        ))
-      }
-    </ul>
+    <div className="movies-grid">
+      {movies.map(movie => (
+        <div key={movie.id} className="movie-card">
+          <img
+            className="movie-poster"
+            src={movie.poster}
+            alt={movie.title}
+            loading="lazy"
+          />
+          <div className="movie-info">
+            <h3 className="movie-title">{movie.title}</h3>
+            <p className="movie-year">{movie.year}</p>
+          </div>
+        </div>
+      ))}
+    </div>
   )
 }
 
 function NoMoviesResult() {
   return (
-    <p>No results that match your search</p>
+    <p className="no-results">No movies found. Try a different search!</p>
   )
 }
 
-export function Movies ({movies}) {
+export function Movies({ movies }) {
   const hasMovies = movies?.length > 0
 
   return (
