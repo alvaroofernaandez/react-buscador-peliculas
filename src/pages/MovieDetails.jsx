@@ -16,38 +16,53 @@ export function MovieDetails() {
   }, [id])
 
   if (loading) {
-    return <div className="loading">Loading movie details...</div>
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p className="text-neon-blue text-xl animate-pulse">Loading movie details...</p>
+      </div>
+    )
   }
 
   if (!movie) return null
 
   return (
-    <div className="movie-details">
-      <Link to="/" className="back-button">← Back to Search</Link>
-      <div className="movie-details-content">
-        <div className="movie-details-poster">
-          <img src={movie.poster} alt={movie.title} />
-        </div>
-        <div className="movie-details-info">
-          <h1>{movie.title}</h1>
-          <div className="movie-meta">
-            <span className="year">{movie.year}</span>
-            <span className="runtime">{movie.runtime}</span>
-            <span className="rating">{movie.rating}</span>
+    <div className="container mx-auto px-4 py-8">
+      <Link
+        to="/"
+        className="inline-flex items-center text-gray-400 hover:text-neon-blue mb-8 transition"
+      >
+        ← Back to Search
+      </Link>
+      <div className="bg-card-bg rounded-3xl overflow-hidden backdrop-blur-xl p-8">
+        <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8">
+          <div>
+            <img
+              src={movie.poster}
+              alt={movie.title}
+              className="w-full rounded-xl shadow-2xl"
+            />
           </div>
-          <p className="plot">{movie.plot}</p>
-          <div className="details-grid">
-            <div>
-              <h3>Director</h3>
-              <p>{movie.director}</p>
+          <div>
+            <h1 className="text-4xl font-bold mb-4">{movie.title}</h1>
+            <div className="flex gap-6 text-gray-400 mb-8">
+              <span>{movie.year}</span>
+              <span>{movie.runtime}</span>
+              <span>★ {movie.rating}</span>
             </div>
-            <div>
-              <h3>Cast</h3>
-              <p>{movie.actors}</p>
-            </div>
-            <div>
-              <h3>Genre</h3>
-              <p>{movie.genre}</p>
+            <p className="text-lg leading-relaxed mb-8 text-gray-300">{movie.plot}</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div>
+                <h3 className="text-neon-blue font-semibold mb-2">Director</h3>
+                <p className="text-gray-400">{movie.director}</p>
+              </div>
+              <div>
+                <h3 className="text-neon-blue font-semibold mb-2">Cast</h3>
+                <p className="text-gray-400">{movie.actors}</p>
+              </div>
+              <div>
+                <h3 className="text-neon-blue font-semibold mb-2">Genre</h3>
+                <p className="text-gray-400">{movie.genre}</p>
+              </div>
             </div>
           </div>
         </div>
